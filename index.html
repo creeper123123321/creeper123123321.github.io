@@ -33,9 +33,8 @@ function updatePage() {
     try {
       history.replaceState(null, null, "#" + pageToLoad + (anchor ? "#" + anchor : ""));
     } catch (e) {
-      console.log(e);
+      location.hash = "#" + pageToLoad + (anchor ? "#" + anchor : ""); // may be an iframe
     }
-    location.hash = "#" + pageToLoad + (anchor ? "#" + anchor : "");
     loadPage(null, {title: "...", lang: "en-US", content: "Loading page..."}, "content");
     $.ajax("pages/" + pageToLoad + ".json").done(function(data) {
       loadPage(pageToLoad, data, anchor);
@@ -60,9 +59,8 @@ function loadPage(pageId, pageData, anchor) {
     try {
       history.replaceState({id: pageId, data: pageData, anchor: anchor}, null, "#" + pageId + (anchor ? "#" + anchor : ""));
     } catch (e) {
-      console.log(e);
+      location.hash = "#" + pageId + (anchor ? "#" + anchor : ""); // may be an iframe
     }
-    location.hash = "#" + pageId + (anchor ? "#" + anchor : "");
     ga('send', 'pageview', {
       'page': location.pathname + location.search + location.hash
     });
