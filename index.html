@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>creeper123123321 - ...</title>
+<meta name="Description" content="creeper123123321's website">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" async onload="onLoad();"></script>
+<script async src="https://google-analytics.com/analytics.js"></script>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-171163135-1', 'auto');
+function onLoad() {
+$(() => {
+var pageNow = null;
+function loadCss(url) {
+  $('head').append($('<link rel="stylesheet" type="text/css">').attr("href", url));
+}
+function loadJs(url) {
+  return $.ajax({url: url, dataType: "script", cache: true});
+}
+function updatePage() {
+  const notFound = "404";
+  const pageRegex = new RegExp("^[a-z0-9]+$");
+  const home = "home";
+  var hash = decodeURIComponent(location.hash.substring(1));
+  var pageToLoad = hash.split("#", 1)[0];
+  var anchor = hash.substring(pageToLoad.length + 1);
+  if (!anchor) anchor = null;
+  if (!pageToLoad) pageToLoad = home;
+  if (!pageRegex.test(pageToLoad)) pageToLoad = notFound;
+  if (pageToLoad != pageNow) {
+    try {
+      history.replaceState(null, null, "#" + pageToLoad + (anchor ? "#" + anchor : ""));
+    } catch (e) {
+      console.log(e);
+    }
+    location.hash = "#" + pageToLoad + (anchor ? "#" + anchor : "");
+    loadPage(null, {title: "...", lang: "en-US", content: "Loading page..."}, "content");
+    $.ajax("pages/" + pageToLoad + ".json").done(function(data) {
+      loadPage(pageToLoad, data, anchor);
+    }).fail(function(jqXhr, textStatus, errorThrown) {
+      if (jqXhr.status == 404 && pageToLoad != notFound) {
+        location.replace("#" + notFound);
+      } else {
+        loadPage(null, {title: "error during page loading", lang: "en-US", content: "Error during page loading. textStatus: " + textStatus + ", errorThrown: " + errorThrown}, "content");
+      }
+    })
+  } else {
+    goToAnchor(anchor);
+  }
+}
+function popState(e) {
+  if (e.state != null) {
+    loadPage(e.state.id, e.state.data, e.state.anchor);
+  }
+}
+function loadPage(pageId, pageData, anchor) {
+  if (pageId != null) {
+    try {
+      history.replaceState({id: pageId, data: pageData, anchor: anchor}, null, "#" + pageId + (anchor ? "#" + anchor : ""));
+    } catch (e) {
+      console.log(e);
+    }
+    location.hash = "#" + pageId + (anchor ? "#" + anchor : "");
+    ga('send', 'pageview', {
+      'page': location.pathname + location.search + location.hash
+    });
+  }
+  pageNow = pageId;
+  document.title = "creeper123123321 - " + pageData.title;
+  $("html title, #content").attr("lang", pageData.lang);
+  $("#content").html(marked(pageData.content));
+  goToAnchor(anchor);
+}
+function goToAnchor(anchor) {
+  var anchorElement = document.getElementById(anchor);
+  if (anchorElement) anchorElement.scrollIntoView();
+}
+loadJs("https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js").done(() => {
+  $(document).on("hashchange", updatePage);
+  $(document).on("popstate", popState);
+  updatePage()
+});
+loadJs("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js");
+loadCss("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css");
+loadCss("https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css");
+loadJs("https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js").done(() => window.cookieconsent.initialise({
+  palette: {
+    popup: { background: "#000" },
+    button: { background: "transparent", text: "#fff", border: "transparent"}
+  },
+  position: "bottom-right"
+}));
+});
+}
+</script>
+</head>
+<body>
+<div class="container" id="content"><noscript><div class="p-3 mb-2 bg-danger text-white">JavaScript is disabled!</div></noscript><p>Loading page...</p></div>
+</script>
+</body>
+</html>
