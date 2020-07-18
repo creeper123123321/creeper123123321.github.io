@@ -85,13 +85,16 @@ loadJs("https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js").done
 loadJs("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js");
 loadCss("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css");
 loadCss("https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css");
-loadJs("https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js").done(() => window.cookieconsent.initialise({
-  palette: {
-    popup: { background: "#000" },
-    button: { background: "transparent", text: "#fff", border: "transparent"}
-  },
-  position: "bottom-right"
-}));
+loadJs("https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js").done(() => {
+  cookieconsent.hasTransition = false;
+  cookieconsent.initialise({
+    palette: {
+      popup: { background: "#000" },
+      button: { background: "transparent", text: "#fff", border: "transparent"}
+    },
+    position: "bottom-right"
+  });
+});
 });
 }
 </script>
