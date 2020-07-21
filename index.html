@@ -19,6 +19,13 @@ function loadCss(url) {
 function loadJs(url) {
   return $.ajax({url: url, dataType: "script", cache: true});
 }
+function failedPage(jqXhr, textStatus, errorThrown) {
+  if (jqXhr.status == 404 && pageToLoad != notFound) {
+    location.replace("#" + notFound);
+  } else {
+    loadPage(null, {title: "error during page loading", lang: "en-US", content: "Error during page loading. textStatus: " + textStatus + ", errorThrown: " + errorThrown}, "content");
+  }
+}
 function updatePage() {
   const notFound = "404";
   const pageRegex = new RegExp("^[a-z0-9]+$");
@@ -36,15 +43,16 @@ function updatePage() {
       location.hash = "#" + pageToLoad + (anchor ? "#" + anchor : ""); // may be an iframe
     }
     loadPage(null, {title: "...", lang: "en-US", content: "Loading page..."}, "content");
-    $.ajax("pages/" + pageToLoad + ".json").done(function(data) {
-      loadPage(pageToLoad, data, anchor);
-    }).fail(function(jqXhr, textStatus, errorThrown) {
-      if (jqXhr.status == 404 && pageToLoad != notFound) {
-        location.replace("#" + notFound);
+    $.ajax({url: "pages/" + pageToLoad + ".json", dataType: "json", cache: true}).done(data => {
+      if (data.content) {
+        loadPage(pageToLoad, data, anchor);
       } else {
-        loadPage(null, {title: "error during page loading", lang: "en-US", content: "Error during page loading. textStatus: " + textStatus + ", errorThrown: " + errorThrown}, "content");
+        $.ajax({url: data.contentUrl, dataType: "text", cache: true}).done(contentData => {
+          data.content = contentData;
+          loadPage(pageToLoad, data, anchor);
+        }).fail(failedPage);
       }
-    })
+    }).fail(failedPage);
   } else {
     goToAnchor(anchor);
   }
