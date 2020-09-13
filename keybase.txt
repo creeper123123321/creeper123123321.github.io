@@ -54,3 +54,60 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/creeper123123321
 
 ==================================================================
+
+==================================================================
+https://keybase.io/creeper123123321
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://re.yt.nom.br
+  * I am creeper123123321 (https://keybase.io/creeper123123321) on keybase.
+  * I have a public key ASCkSBf4jmyjb1yuGhOGXZaqRMg1quf_7Y9_oomq50x2NAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101dc22dae634887a3469080195c5425e3a979627c5f5d171beedaf3ccf507fc9f40a",
+      "host": "keybase.io",
+      "kid": "0120a44817f88e6ca36f5cae1a13865d96aa44c835aae7ffed8f7fa289aae74c76340a",
+      "uid": "13f6d85b479741302cb0b543c2bfed19",
+      "username": "creeper123123321"
+    },
+    "merkle_root": {
+      "ctime": 1599956639,
+      "hash": "718fefe416b2319bc4d8dfac1c027c1ab5f329428a020664e4c05ea3980d859a69c6de239cfca41ca5e4fff4589498db688428c44801e38a869f66c9e82c9f4a",
+      "hash_meta": "e9b7ce9faddec44b3b709dc582c041bb293ff33ad6a21817dde2d3c5061eb131",
+      "seqno": 17549634
+    },
+    "service": {
+      "entropy": "scgC+qsN43n6dAhQrWjEBOLS",
+      "hostname": "re.yt.nom.br",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.1"
+  },
+  "ctime": 1599956688,
+  "expire_in": 504576000,
+  "prev": "8937d16941a19d673c2c88b557527f22acf979555fb6bee683d6868866795699",
+  "seqno": 62,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgpEgX+I5so29crhoThl2WqkTINarn/+2Pf6KJqudMdjQKp3BheWxvYWTESpcCPsQgiTfRaUGhnWc8LIi1V1J/Iqz5eVVftr7mg9aGiGZ5VpnEIDBWx/gTMtVm1C0y0KIwCjgpMN5PXppY5qtqZZOjwC60AgHCo3NpZ8RAaSzTOEg36x49H39ApitCSakRt7dabWi1dIxSRMEE7YhnTCsuMW3IlvxWFwpd9l3y+3tnW0z4UJsForUEAv0bDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILTK7wEsqKXZzA8tr+GNLJrzD2AMkXUTnQeXha+qKPlyo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/creeper123123321
+
+==================================================================
