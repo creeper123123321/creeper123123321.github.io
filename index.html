@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>creeper123123321 - ...</title>
 <meta name="Description" content="creeper123123321's website">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" async onload="cookieconsent.hasTransition = false; cookieconsent.initialise({palette:{popup:{background:'#000'},button:{background:'transparent',text:'#fff',border:'transparent'}},position: 'bottom-right'});"></script>
@@ -15,7 +14,8 @@
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-171163135-1', 'auto');
-  
+
+function onJquery() {
 $(() => {
 var pageNow = null;
 
@@ -88,7 +88,9 @@ $(window).on("popstate", popState);
 $(window).on("hashchange", updatePage);
 updatePage();
 });
+}
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" async onload="onJquery()"></script>
 </head>
 <body>
 <div class="container" id="content"><noscript><div class="p-3 mb-2 bg-danger text-white">JavaScript is disabled!</div></noscript><p>Loading page...</p></div>
