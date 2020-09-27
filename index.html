@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" async></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" async onload="ccStart()"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" async onload="cookieconsent.hasTransition = false; cookieconsent.initialise({palette:{popup:{background:'#000'},button:{background:'transparent',text:'#fff',border:'transparent'}},position: 'bottom-right'});"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" media="none" onload="media='all'">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" media="none" onload="media='all'">
 <script async src="https://google-analytics.com/analytics.js"></script>
@@ -88,16 +88,6 @@ $(window).on("popstate", popState);
 $(window).on("hashchange", updatePage);
 updatePage();
 });
-function ccStart() {
-  cookieconsent.hasTransition = false;
-  cookieconsent.initialise({
-    palette: {
-      popup: { background: "#000" },
-      button: { background: "transparent", text: "#fff", border: "transparent"}
-    },
-    position: "bottom-right"
-  });
-}
 </script>
 </head>
 <body>
