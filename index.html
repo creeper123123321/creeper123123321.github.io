@@ -8,11 +8,6 @@
 <base href="https://re.yt.nom.br/">
 <link media="none" onload="media='all'" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
 <link media="none" onload="media='all'" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" integrity="sha512-thoh2veB35ojlAhyYZC0eaztTAUhxLvSZlWrNtlV01njqs/UdY3421Jg7lX0Gq9SRdGVQeL8xeBp9x1IPyL1wQ==" crossorigin="anonymous">
-<script async src="https://google-analytics.com/analytics.js"></script>
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-171163135-1', 'auto');
-</script>
 <script>
 function onJq() {
 $(() => {
@@ -72,9 +67,6 @@ function loadPage(pageId, pageData, anchor) {
     } catch (e) {
       location.hash = "#" + pageId + (anchor ? "#" + anchor : ""); // may be an iframe
     }
-    ga('send', 'pageview', {
-      'page': location.pathname + location.search + location.hash
-    });
   }
   pageNow = pageId;
   document.title = "creeper123123321 - " + pageData.title;
