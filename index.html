@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>creeper123123321 - ...</title>
 <meta name="Description" content="creeper123123321's website">
-<link media="none" onload="media='all'" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
-<link media="none" onload="media='all'" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" integrity="sha512-thoh2veB35ojlAhyYZC0eaztTAUhxLvSZlWrNtlV01njqs/UdY3421Jg7lX0Gq9SRdGVQeL8xeBp9x1IPyL1wQ==" crossorigin="anonymous">
-<script>
-function onJq() {
+<link media="none" onload="media='all'" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha512-F7WyTLiiiPqvu2pGumDR15med0MDkUIo5VTVyyfECR5DZmCnDhti9q5VID02ItWjq6fvDfMaBaDl2J3WdL1uxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js" integrity="sha512-AD+GG1nJKO4Je/Q8QsY1gM9/7o1QjpGe9W2Lrg1oGtEID/RX8bMKKZGgw/KOODkPXL6j74c6eJWAhE/3F2kKjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" onload="cookieconsent.hasTransition=false;cookieconsent.initialise({palette:{popup:{background:'#000'},button:{background:'transparent',text:'#fff',border:'transparent'}},position:'bottom-right'});"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha512-PqRelaJGXVuQ81N6wjUrRQelCDR7z8RvKGiR9SbSxKHPIt15eJDmIVv9EJgwq0XvgylszsjzvQ0+VyI2WtIshQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer>
 $(() => {
 var pageNow = null;
-function loadJs(url) {
-  return $.ajax({url: url, dataType: "script", cache: true});
-}
 
 const notFound = "404";
 const home = "home";
@@ -77,13 +77,10 @@ function goToAnchor(anchor) {
   var anchorElement = document.getElementById(anchor);
   if (anchorElement) anchorElement.scrollIntoView();
 }
-loadJs("https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js").done(() => {
-  $(window).on("popstate", popState);
-  $(window).on("hashchange", updatePage);
-  updatePage()
+$(window).on("popstate", popState);
+$(window).on("hashchange", updatePage);
+updatePage();
 });
-});
-}
 </script>
 </head>
 <body>
@@ -109,8 +106,5 @@ loadJs("https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.min.js").done
   </div>
 </nav>
 <div class="container" id="content"><noscript>JavaScript is disabled!</noscript><p>Loading page...</p></div>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" onload="onJq();"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" onload="cookieconsent.hasTransition=false;cookieconsent.initialise({palette:{popup:{background:'#000'},button:{background:'transparent',text:'#fff',border:'transparent'}},position:'bottom-right'});"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha512-q2vREMvON/xrz1KuOj5QKWmdvcHtM4XNbNer+Qbf4TOj+RMDnul0Fg3VmmYprdf3fnL1gZgzKhZszsp62r5Ugg==" crossorigin="anonymous"></script>
 </body>
 </html>
