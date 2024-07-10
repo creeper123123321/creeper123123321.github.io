@@ -1,16 +1,29 @@
 $(() => {
 var pageNow = null;
 
+const pages = {
+  "home": {
+    title: "home", lang: "en-us",
+    content: `## Projects
+- [GitHub](https://github.com/creeper123123321)
+- [Modrinth](https://modrinth.com/user/creeper123123321)
+- [CurseForge](https://www.curseforge.com/members/creeper12312332/projects)
+
+## Social
+- Discord: creeper123123321
+- [Mastodon](https://social.vivaldi.net/@creeper123123321)
+- [Keybase](https://keybase.io/creeper123123321)`
+  },
+  "404": {"title": "not found", "lang": "en-us", "content": "**404 Not Found**\n\n[Go to home](#home)"},
+  "donate": {
+    "title": "donate", "lang": "en-us",
+    "content": "## Donate\n- [Github Sponsors](https://github.com/sponsors/creeper123123321/)\n- [PayPal](https://www.paypal.com/donate/?business=AXCK2P7NJNRVN&item_name=Donation+to+creeper123123321&currency_code=USD)\n- [PicPay](https://picpay.me/creeper123123321)"
+  },
+}
+
 const notFound = "404";
 const home = "home";
 
-function failedPage(jqXhr, textStatus, errorThrown, pageToLoad) {
-  if (jqXhr.status == 404 && pageToLoad != notFound) {
-    location.replace("#" + notFound);
-  } else {
-    loadPage(null, {title: "error during page loading", lang: "en-US", content: "Error during page loading. textStatus: " + textStatus + ", errorThrown: " + errorThrown}, "content");
-  }
-}
 function updatePage() {
   const pageRegex = new RegExp("^[a-z0-9\-]+$");
   var hash = decodeURIComponent(location.hash.substring(1));
@@ -25,17 +38,12 @@ function updatePage() {
     } catch (e) {
       location.hash = "#" + pageToLoad + (anchor ? "#" + anchor : ""); // may be an iframe
     }
-    loadPage(null, {title: "...", lang: "en-US", content: "Loading page..."}, "content");
-    $.ajax({url: "pages/" + pageToLoad + ".json", dataType: "json", cache: true}).done(data => {
-      if (data.content) {
-        loadPage(pageToLoad, data, anchor);
-      } else {
-        $.ajax({url: data.contentUrl, dataType: "text", cache: true}).done(contentData => {
-          data.content = contentData;
-          loadPage(pageToLoad, data, anchor);
-        }).fail((a, b, c) => failedPage(a, b, c, pageToLoad));
-      }
-    }).fail((a, b, c) => failedPage(a, b, c, pageToLoad));
+    data = pages[pageToLoad];
+    if (data != undefined) {
+      loadPage(pageToLoad, data, anchor);
+    } else {
+      location.replace("#" + notFound);
+    }
   } else {
     goToAnchor(anchor);
   }
